@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -15,27 +17,27 @@ public class SessionDetails {
      private Long id;
    @ManyToOne
    @JoinColumn(name = "id", nullable = false ,insertable = false,updatable = false)
-   private Group groupId;
+   private Group  groupId;
    private String sessionName;
-   private Date sessionDate;
-   private Date startDate;
-   private Date endDate ;
+   private LocalDateTime sessionDate;
+   private LocalDateTime startDate;
+   private LocalDateTime endDate ;
    private String location;
    private String userCreated;
 
-   public String getStartDateAsString() {
-      if (startDate != null) {
-         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy'T'HH:mm");
-         return formatter.format(startDate);
-      }
-      return ""; // Or return null if you prefer
-   }
-   public String getEndDateAsString() {
-      if (startDate != null) {
-         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy'T'HH:mm");
-         return formatter.format(endDate);
-      }
-      return ""; // Or return null if you prefer
-   }
+//   public String getStartDateAsString() {
+//      if (startDate != null) {
+//         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy'T'HH:mm");
+//         return formatter.format(startDate);
+//      }
+//      return ""; // Or return null if you prefer
+//   }
+//   public String getEndDateAsString() {
+//      if (startDate != null) {
+//         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy'T'HH:mm");
+//         return formatter.format(endDate);
+//      }
+//      return ""; // Or return null if you prefer
+//   }
 
 }

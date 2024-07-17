@@ -44,14 +44,8 @@ public class SessionController {
     }
     @PostMapping("/new")
     public String saveSession(@ModelAttribute("session-detail") SessionDetails mysession){
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy'T'HH:mm");
-        try {
-            mysession.setStartDate(formatter.parse(mysession.getStartDateAsString()));
-            mysession.setEndDate(formatter.parse(mysession.getEndDateAsString()));
-        } catch (ParseException e) {
-            // Handle parsing exception if the format is invalid
-            return "error"; // Or any appropriate error handling
-        }
         sessionService.saveSession(mysession);
         return "redirect:/session-detail";
     }
